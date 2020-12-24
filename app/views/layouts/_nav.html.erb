@@ -1,0 +1,5 @@
+<% if user_signed_in? %>
+    <%= render 'shared/nav_user' %>
+<% else %>
+    <%= render 'shared/nav_guest'%>
+<% end %>

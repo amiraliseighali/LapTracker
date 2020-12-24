@@ -1,0 +1,9 @@
+<h1>Posts </h1>
+<%= form_for(@post, :method => 'patch') do |f| %>
+<%= render(:partial => 'form', :locals => {:f => f})%>
+  <div>
+    <%= f.submit('Edit Post')%>
+  </div>
+<% end %>
+
+<%= link_to('Back to Posts', posts_path) %>

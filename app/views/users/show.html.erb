@@ -1,0 +1,86 @@
+<div class="card">
+   <%= image_tag '91112fafd56e281861785a657b0e48ad.png', class: "card-img-top img-fluid" , :style => "height: 200px; object-fit: cover;"%>
+   <div class="card-body">
+      <div class="row">
+         <div class="col-2">
+            <%= image_tag '91112fafd56e281861785a657b0e48ad.png', class: "card-img-top rounded-circle" , :style => "height: 100px; width: 100px; object-fit: cover;"%>
+         </div>
+         <div class="col">
+            <div class="row">
+               <div class="col">
+                  <h5 class="card-title"><%= @user.username%></h5>
+               </div>
+               <div class="col">
+                  <h6>Followers:</h6>
+                  <p><%= @user.followers_by_type_count('User')  %></p>
+               </div>
+               <div class="col">
+                  <h6>Following:</h6>
+                  <p><%= @user.following_by_type_count('User')  %></p>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col">
+                  <p class="card-text">This will be the bio. im a racer, i love racing f1, my man is senna</p>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col">
+                    <%= render(:partial => 'follow')%>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<% @user.posts.each do |post| %>
+<div class="card">
+   <div class="card-header">
+      <div class="row">
+         <div class="col-2">
+            <%= image_tag '91112fafd56e281861785a657b0e48ad.png', class: "card-img-top rounded-circle" , :style => "height: 50px; width: 50px; object-fit: cover;"%>
+         </div>
+         <div class="col">
+            <h5> <a href="/users/<%= @user.username %>"> <%= @user.username%></a> </h5>
+         </div>
+         <div class="col text-muted">
+            <p><%= post.created_at %></p>
+         </div>
+         <% if post.user_id == current_user&.id %>
+         <div class="col">
+            <%= link_to  edit_post_path(post) , :class => 'action edit' do %> Edit<% end %> 
+         </div>
+         <div class="col">
+            <%= link_to( delete_post_path(post), :class => 'action delete') do %> Delete<% end %>
+         </div>
+         <% end %>
+      </div>
+   </div>
+   <div class="card-body">
+      <div class="row">
+         <div class="col">
+            <h6>Track</h6>
+            <p><%= post.track %></p>
+         </div>
+         <div class="col">
+            <h6>Tyre:</h6>
+            <p><%= post.tyre %></p>
+         </div>
+         <div class="col">
+            <h6>Weather:</h6>
+            <p><%= post.weather %></p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col">
+            <h6>Car</h6>
+            <p><%= post.car %></p>
+         </div>
+         <div class="col">
+            <h6>Lap Time</h6>
+            <p><%= post.lap_time %></p>
+         </div>
+      </div>
+   </div>
+</div>
+<% end %>

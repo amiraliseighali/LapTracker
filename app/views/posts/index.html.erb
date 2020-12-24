@@ -1,0 +1,34 @@
+<h1>Posts</h1>
+<%= link_to("new post", new_post_path, :class=> 'action new')%>
+
+<table>
+  <tr>
+    <th>Track</th>
+    <th>Car</th>
+    <th>Lap Time</th>
+    <th>Tyre</th>
+    <th>Weather</th>
+    <th>Event Time and Date</th>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+  <% @posts.each do |post| %>
+    <tr>
+      <td> <%= post.track %></td>
+      <td> <%= post.car %></td>
+      <td> <%= post.lap_time %></td>
+      <td> <%= post.tyre %></td>
+      <td> <%= post.weather %></td>
+      <td> <%= post.event_time_date %></td>
+      <td> <%= post.name %></td>
+      <td> <%= post.user.present? ? post.user.username :  'Deleted User' %></td>
+      <% if post.user == current_user %>
+      <td>
+          <%= link_to( edit_post_path(post) , :class => 'action edit') do %><i class="glyphicon glyphicon-pencil"> edit </i> <% end %> 
+          <%= link_to( delete_post_path(post), :class => 'action delete') do %><i class="glyphicon glyphicon-trash"> delete</i> <% end %>
+      </td>
+      <% end %>
+
+    </tr>
+  <% end %>
+</table>
