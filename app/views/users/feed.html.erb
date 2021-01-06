@@ -1,7 +1,31 @@
 <h1>Users</h1>
 
   <% @posts.each do |post| %>
-    <%= post.track %>
-   
+    <div class="card-body">
+      <div class="row">
+         <div class="col">
+            <h6>Track</h6>
+            <p><%= post.track %></p>
+         </div>
+         <div class="col">
+            <h6>Tyre:</h6>
+            <p><%= post.tyre %></p>
+         </div>
+         <div class="col">
+            <h6>Weather:</h6>
+            <p><%= post.weather %></p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col">
+            <h6>Car</h6>
+            <p><%= post.car %></p>
+         </div>
+         <div class="col">
+            <h6>Lap Time</h6>
+            <p><%= post.lap_time %></p>
+         </div>
+      </div>
+   </div>
   <% end %>
 
