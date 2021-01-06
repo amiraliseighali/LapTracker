@@ -1,14 +1,16 @@
+require 'pry'
+
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
-  before_action :set_current_user_for_view
+ # before_action :set_current_user_for_view
 
   def index
     @users = User.order(created_at: :desc)
   end
 
   def show
-    byebug
+    #binding.pry
     @user = User.find_by!(username: params[:id])
   end
 

@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'simple_form'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'byebug'
+gem 'pry'
 
 gem 'momentjs-rails', '>= 2.9'
 gem 'devise', '~> 4.2'

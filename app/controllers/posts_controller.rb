@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.order(event_time_date: :DESC)
   end
-  #asc and desc seem to do the same
+  #asc and desc seem to do the same?
 
 
 
