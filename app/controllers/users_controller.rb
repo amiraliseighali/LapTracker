@@ -14,13 +14,16 @@ class UsersController < ApplicationController
     @user = User.find_by!(username: params[:id])
   end
 
+  def feed 
+    @posts = Post.where(user_id: current_user.all_following.pluck(:id)).order(created_at: :DESC)
+  end
+
+
   def follow
     @user = User.find(params[:id])
-
     if (current_user != @user)
       current_user.follow(@user)
     end
-
     redirect_to(user_path(@user.username))
   end
 
