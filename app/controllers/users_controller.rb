@@ -37,6 +37,10 @@ class UsersController < ApplicationController
 
   def edit
   end
+  helper_method :find_username
+  def find_username(id)
+    @user = User.find(id).username  
+  end
 
   def update
   end
