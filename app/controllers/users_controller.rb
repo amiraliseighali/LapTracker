@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   end
 
   def feed 
-    
     @posts = Post.where(user_id: current_user.all_following.pluck(:id)).or(Post.where(user_id: current_user.id)).order(created_at: :DESC)
   end
 
