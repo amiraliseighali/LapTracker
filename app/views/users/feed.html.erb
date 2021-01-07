@@ -1,4 +1,4 @@
-<h1>Users</h1>
+
     
     <% @posts.each do |post| %>
     <div class="card">
@@ -13,16 +13,8 @@
             <div class="col text-muted">
                 <p><%= post.created_at %></p>
             </div>
-            <% if post.user_id == current_user&.id %>
             <div class="col">
-                <%= link_to  edit_post_path(post) , :class => 'action edit' do %> Edit<% end %> 
-            </div>
-            <div class="col">
-                <%= link_to( delete_post_path(post), :class => 'action delete') do %> Delete<% end %>
-            </div>
-            <% end %>
-            <div class="col">
-                <div class="dropdown d-inline-block">
+                <div class="dropdown d-inline-block pull-right">
                 <button class="btn btn-secondary dropdown-toggle glyphicon glyphicon-collapse-down" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <% if post.user_id == current_user&.id %>
