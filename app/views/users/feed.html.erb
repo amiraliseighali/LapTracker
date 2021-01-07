@@ -1,5 +1,5 @@
 <h1>Users</h1>
-
+    
     <% @posts.each do |post| %>
     <div class="card">
     <div class="card-header">
@@ -8,7 +8,7 @@
                 <%= image_tag '91112fafd56e281861785a657b0e48ad.png', class: "card-img-top rounded-circle" , :style => "height: 50px; width: 50px; object-fit: cover;"%>
             </div>
             <div class="col">
-                <h5> <a href="/users/<%= find_username(post.user_id)%>"> <%= find_username(post.user_id) %></a> </h5>
+                <h5> <a href="/users/<%= find_user(post.user_id).username%>"> <%= find_user(post.user_id).username %> </a> </h5>
             </div>
             <div class="col text-muted">
                 <p><%= post.created_at %></p>
@@ -21,6 +21,25 @@
                 <%= link_to( delete_post_path(post), :class => 'action delete') do %> Delete<% end %>
             </div>
             <% end %>
+            <div class="col">
+                <div class="dropdown d-inline-block">
+                <button class="btn btn-secondary dropdown-toggle glyphicon glyphicon-collapse-down" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <% if post.user_id == current_user&.id %>
+                <a class="dropdown-item">
+                    <%= link_to  edit_post_path(post) , :class => 'action edit' do %> Edit<% end %> 
+                </a>
+                <a class="dropdown-item">
+                    <%= link_to( delete_post_path(post), :class => 'action delete') do %> Delete<% end %>
+                </a>
+                <% end %>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="card-body">
