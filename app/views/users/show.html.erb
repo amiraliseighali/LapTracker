@@ -52,7 +52,7 @@
                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                <% if post.user_id == current_user&.id %>
                <a class="dropdown-item">
-                  <%= link_to  edit_post_path(post) , :class => 'action edit' do %> Edit<% end %> 
+                  <%= link_to( edit_post_path(post) , :class => 'action edit') do %> Edit<% end %> 
                </a>
                <a class="dropdown-item">
                   <%= link_to( delete_post_path(post), :class => 'action delete') do %> Delete<% end %>

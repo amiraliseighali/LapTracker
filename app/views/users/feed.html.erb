@@ -1,5 +1,20 @@
 
-    
+<p>
+  <a class="btn btn-success btn-block text-left" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Add Lap Time
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+      <%= form_for(@new_post, method: 'post') do |f| %>
+    <%= render(partial: 'posts/form', locals: {f: f})%>
+    <div>
+      <%= f.submit('Add Time')%>
+    </div>
+  <% end %>
+    </div>
+</div>
+
     <% @posts.each do |post| %>
     <div class="card">
     <div class="card-header">

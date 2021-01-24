@@ -1,5 +1,5 @@
 <% if @user == current_user %>
-    <%= link_to "edit profile", edit_user_path(@user), method: :get %>
+    <%= link_to 'Edit Profile', edit_user_registration_path, method: :get %>
 <% else %>
     <% if @user.followed_by?(current_user) %>
         <%= link_to "Unfollow", unfollow_user_path(@user), method: :post %>

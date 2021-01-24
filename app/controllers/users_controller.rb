@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def feed 
+    @new_post = Post.new
     @posts = Post.where(user_id: current_user.all_following.pluck(:id)).or(Post.where(user_id: current_user.id)).order(created_at: :DESC)
   end
 
@@ -39,6 +40,7 @@ class UsersController < ApplicationController
   end
   helper_method :find_user
   def find_user(id)
+    #this way each user needed is manually looked up. bad or ?
     @user = User.find(id) 
   end
 
