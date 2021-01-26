@@ -29,6 +29,8 @@ gem 'inputmask-rails'
 
 gem 'momentjs-rails', '>= 2.9'
 gem 'devise', '~> 4.2'
+gem 'gravatar_image_tag'
+gem "image_processing"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

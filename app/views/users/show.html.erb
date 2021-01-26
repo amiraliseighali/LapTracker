@@ -3,7 +3,7 @@
    <div class="card-body">
       <div class="row">
          <div class="col-2">
-            <%= image_tag '91112fafd56e281861785a657b0e48ad.png', class: "card-img-top rounded-circle" , :style => "height: 100px; width: 100px; object-fit: cover;"%>
+            <%= image_tag user_avatar(current_user, 100), class: "rounded-circle" %>
          </div>
          <div class="col">
             <div class="row">
@@ -21,7 +21,7 @@
             </div>
             <div class="row">
                <div class="col">
-                  <p class="card-text">This will be the bio. im a racer, i love racing f1, my man is senna</p>
+                  <p class="card-text"><%=  @user.bio %></p>
                </div>
             </div>
             <div class="row">
@@ -37,8 +37,8 @@
 <div class="card">
    <div class="card-header">
       <div class="row">
-         <div class="col-2">
-            <%= image_tag '91112fafd56e281861785a657b0e48ad.png', class: "card-img-top rounded-circle" , :style => "height: 50px; width: 50px; object-fit: cover;"%>
+         <div class="col-2" >
+            <%= image_tag user_avatar(@user, 100), class: "rounded-circle" %>
          </div>
          <div class="col">
             <h5> <a href="/users/<%= @user.username %>"> <%= @user.username%></a> </h5>

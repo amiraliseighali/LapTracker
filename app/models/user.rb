@@ -6,4 +6,5 @@ class User < ApplicationRecord
   acts_as_followable
   acts_as_follower
   has_many :posts #, dependent: :destroy
+  has_one_attached :avatar
 end
