@@ -9,7 +9,7 @@
   </tr>
   <tr>
     <th>Lap Time</th>
-    <td><%= f.text_field(:lap_time) %></td>
+    <td><%= f.text_field :lap_time , autocomplete: "phone Number", placeholder: "00:00:000" , 'data-mask': '00:00:000' %></td>
   </tr>
   <tr>
     <th>Tyre</th>
@@ -18,9 +18,5 @@
   <tr>
     <th>Weather</th>
     <td><%= f.text_field(:weather) %></td>
-  </tr>
-  <tr>
-    <th>Event Time and Date</th>
-    <td><%= f.text_field(:event_time_date) %></td>
   </tr>
 </table>
