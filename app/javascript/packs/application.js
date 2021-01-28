@@ -2,6 +2,14 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
+import { Application } from "stimulus"
+import { autoLoad } from "stimulus/webpack-helpers"
+
+const application = Application.start()
+const controllers = require.context("./controllers", true, /\.js$/)
+autoLoad(controllers, application)
+
+
 import 'bootstrap'
 require("@rails/ujs").start()
 require("turbolinks").start()
