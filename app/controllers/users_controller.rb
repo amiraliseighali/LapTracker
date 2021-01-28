@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def feed 
     @new_post = Post.new
-    @posts = Post.where(user_id: current_user.all_following.pluck(:id)).or(Post.where(user_id: current_user.id)).order(created_at: :DESC)
+    @pagy, @posts = pagy(Post.where(user_id: current_user.all_following.pluck(:id)).or(Post.where(user_id: current_user.id)).order(created_at: :DESC))
   end
 
 
