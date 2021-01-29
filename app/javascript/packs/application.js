@@ -3,12 +3,11 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 import { Application } from "stimulus"
-import { autoLoad } from "stimulus/webpack-helpers"
+import { definitionsFromContext } from "stimulus/webpack-helpers"
 
 const application = Application.start()
-const controllers = require.context("./controllers", true, /\.js$/)
-autoLoad(controllers, application)
-
+const context = require.context("./controllers", true, /\.js$/)
+application.load(definitionsFromContext(context))
 
 import 'bootstrap'
 require("@rails/ujs").start()
@@ -33,3 +32,5 @@ $.jMaskGlobals.watchDataMask = true;
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import "controllers"

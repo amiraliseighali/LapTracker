@@ -1,22 +1,4 @@
-
-<p>
-  <a class="btn btn-success btn-block text-left" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Add Lap Time
-  </a>
-</p>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-      <%= form_for(@new_post, method: 'post') do |f|  %>
-    <%= render(partial: 'posts/form', locals: {f: f})%>
-    <div>
-      <%= f.submit('Add Time')%>
-    </div>
-  <% end %>
-    </div>
-</div>
-<div data-controller="feed" data-action="scroll@window->feed#scroll" >
-  <div data-target="feed.entries">
-    <% @posts.each do |post| %>
+<% @posts.each do |post| %>
     <div class="card">
     <div class="card-header">
         <div class="row">
@@ -77,10 +59,3 @@
         </div>
     </div>
 <% end %>
-  </div>
-    <div data-feed-target="pagination">
-      <%== pagy_nav(@pagy)%>
-    </div>
-</div>
-  
-
