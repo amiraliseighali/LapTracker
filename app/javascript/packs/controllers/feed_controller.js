@@ -3,12 +3,15 @@ import Rails from '@rails/ujs';
 export default class extends Controller {
     static targets = ["entries","pagination"]
     scroll(){
-        let url = this.paginationTarget.querySelector("a[rel ='next']").href
+        let next_page = this.paginationTarget.querySelector("a[rel ='next']")
+        if(next_page == null ){ return }
+        let url = next_page.href
         var body = document.body,
             html = document.documentElement
+        console.log(url)
         
         var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)
-        if(window.pageYOffset >= height - window.innerHeight - 300){
+        if(window.pageYOffset >= height - window.innerHeight - 100){
             this.loadMore(url)
         }
     }
@@ -18,9 +21,9 @@ export default class extends Controller {
             url: url,
             dataType: 'json',
             success: (data) => {
-                console.log(data)
+                this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
+                this.paginationTarget.innerHTML = data.pagination
             } 
         })
-
     }
 }

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html
       format.json{
-        render json:{entries: render_to_string(partial: "posts", format: [:html]), pagination: view_context.pagy_nav(@pagy)}
+        render json:{entries: render_to_string(partial: "feed_posts", formats: [:html]), pagination: view_context.pagy_nav(@pagy)}
       }
     end
   end
