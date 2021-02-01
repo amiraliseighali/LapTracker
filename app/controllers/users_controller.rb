@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def feed 
     @new_post = Post.new
-    @pagy, @posts = pagy(Post.where(user_id: current_user.all_following.pluck(:id)).or(Post.where(user_id: current_user.id)).order(created_at: :DESC), items: 3)
+    @pagy, @posts = pagy(Post.where(user_id: current_user.all_following.pluck(:id)).or(Post.where(user_id: current_user.id)).order(created_at: :DESC), items: 5)
     respond_to do |format|
       format.html
       format.json{

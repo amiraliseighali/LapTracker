@@ -15,12 +15,12 @@
     </div>
 </div>
 <div data-controller="feed" data-action="scroll@window->feed#scroll" >
-  <div data-target="feed.entries">
+  <div data-feed-target="entries">
     <%= render(partial: "feed_posts")%>
   </div>
-    <div data-target="feed.pagination">
-      <%== pagy_nav(@pagy)%>
-    </div>
+  <div data-feed-target="pagination"  hidden>
+    <%== pagy_nav(@pagy)%>
+  </div>
 </div>
   
 

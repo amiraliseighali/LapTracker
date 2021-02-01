@@ -8,10 +8,12 @@ export default class extends Controller {
         let url = next_page.href
         var body = document.body,
             html = document.documentElement
-        console.log(url)
+        
         
         var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)
         if(window.pageYOffset >= height - window.innerHeight - 100){
+
+            console.log("loading")
             this.loadMore(url)
         }
     }
@@ -21,7 +23,8 @@ export default class extends Controller {
             url: url,
             dataType: 'json',
             success: (data) => {
-                this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
+                console.log(data)
+                this.entriesTarget.insertAdjacentHTML('beforeend', data.entries);
                 this.paginationTarget.innerHTML = data.pagination
             } 
         })
