@@ -1,7 +1,11 @@
 import { Controller } from 'stimulus'; 
 import Rails from '@rails/ujs';
+let throttle = require('lodash/throttle');
 export default class extends Controller {
     static targets = ["entries","pagination"]
+    initialize(){
+        this.scroll = throttle(this.scroll, 2000).bind(this)
+      }    
     scroll(){
         let next_page = this.paginationTarget.querySelector("a[rel ='next']")
         if(next_page == null ){ return }
