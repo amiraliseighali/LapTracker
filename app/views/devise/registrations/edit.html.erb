@@ -6,14 +6,26 @@
   <div class="form-inputs">
     <div class="row">
       <div class="col-sm-4">
+        <%= f.file_field :avatar %>
+      </div>
+      <div class="col-sm-8">
         <% if resource.avatar.attached?%>
           <%= image_tag resource.avatar, class: "rounded-circle", width: 100, height: 100%>
         <% else %>
           <%= image_tag gravatar_image_url('aseighali96@gmail.com'.gsub('spam', 'mdeering'),size: 100 ), class: "rounded-circle"%>
         <% end %>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <%= f.file_field :cover %>
+      </div>
       <div class="col-sm-8">
-        <%= f.file_field :avatar %>
+        <% if resource.cover.attached?%>
+          <%= image_tag resource.cover, width: 200, height: 100%>
+        <% else %>
+          <%= image_tag gravatar_image_url('aseighali96@gmail.com'.gsub('spam', 'mdeering'),size: 200 )%>
+        <% end %>
       </div>
     </div>
     <%= f.input :email, required: true, autofocus: true %>

@@ -28,7 +28,7 @@ export default class extends Controller {
             dataType: 'json',
             success: (data) => {
                 console.log(data)
-                this.entriesTarget.insertAdjacentHTML('beforeend', data.entries);
+                this.entriesTarget.insertAdjacentHTML('afterend', data.entries);
                 this.paginationTarget.innerHTML = data.pagination
             } 
         })

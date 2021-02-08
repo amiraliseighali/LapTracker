@@ -1,9 +1,9 @@
 <div class="card">
-   <%= image_tag '91112fafd56e281861785a657b0e48ad.png', class: "card-img-top img-fluid" , :style => "height: 200px; object-fit: cover;"%>
+   <%= image_tag user_photo(@user.cover), class: "card-img-top img-fluid" , :style => "height: 200px; object-fit: cover;"%>
    <div class="card-body">
       <div class="row">
          <div class="col-2" >
-            <%= image_tag user_avatar(@user), class: "rounded-circle" , :style => "height: 80px; width: 80px; object-fit: cover; "%>
+            <%= image_tag user_photo(@user.avatar), class: "rounded-circle" , :style => "height: 80px; width: 80px; object-fit: cover; "%>
          </div>
          <div class="col">
             <div class="row">
@@ -38,7 +38,7 @@
    <div class="card-header">
       <div class="row">
          <div class="col-2" >
-            <%= image_tag user_avatar(@user), class: "rounded-circle" , :style => "height: 80px; width: 80px; object-fit: cover; "%>
+            <%= image_tag user_photo(@user.avatar), class: "rounded-circle" , :style => "height: 80px; width: 80px; object-fit: cover; "%>
          </div>
          <div class="col">
             <h5> <a href="/users/<%= @user.username %>"> <%= @user.username%></a> </h5>
