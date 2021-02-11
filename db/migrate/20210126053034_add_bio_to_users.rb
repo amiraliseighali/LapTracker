@@ -1,5 +1,5 @@
 class AddBioToUsers < ActiveRecord::Migration[6.0]
   def change
-#this bio is added eventho it's removed
+    add_column :users, :bio, :string
   end
 end
